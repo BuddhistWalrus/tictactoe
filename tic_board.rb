@@ -35,20 +35,23 @@ class TicBoard
 	def o_location
 		@o_location
 	end
+
 	#add o to someplace on the board and record the location
 	def add_o(index)
 		
-		@board.each do |key, value|
+		@board.each do |place|
+			place.each do |key, value|
 			
-			if key == index
-				value = @o
-				@o_location << index
+				if key == index
+					value = @o
+					@o_location << index
+				end
 			end
 		end
 	end
 
 	#loop through every possible solution and use array subtraction to determine the winner
-	def determine_winner
+	def determine_winner(turns)
 		@solutions.each do |solution|
 
 			if ((solution - @x_location) == [])
@@ -57,17 +60,12 @@ class TicBoard
 			elsif ((solution - @o_location) == [])
 				return "O Wins!"
 
+			elsif turns == 9
+				return "Draw!"
 
+			else
+				return nil
 			end
 		end
-		return "Draw!"
 	end
 end
-
-foo = TicBoard.new
-
-foo.add_x(0)
-foo.add_x(1)
-foo.add_x(2)
-puts "#{foo.x_location}"
-puts foo.determine_winner
