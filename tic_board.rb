@@ -1,3 +1,5 @@
+require_relative 'tic_visual'
+
 class TicBoard 
 
 	#init with full board, solutions, and location arrays
@@ -15,7 +17,7 @@ class TicBoard
 	end
 
 	#add x to someplace on the board and record the location
-	def add_x(index, spaces)
+	def add_x(index, spaces, visual)
 		if index > 0 && index <=9
 			@board.each do |place|
 				place.each do |key, value|
@@ -25,6 +27,7 @@ class TicBoard
 						if !(@o_location.include?(index) || @x_location.include?(index))
 							@x_location << index
 							spaces += 1
+							visual.add(index, "X")
 						else
 							puts "Invalid move!"
 						end
@@ -46,7 +49,7 @@ class TicBoard
 	end
 
 	#add o to someplace on the board and record the location
-	def add_o(index, spaces)
+	def add_o(index, spaces, visual)
 		if index > 0 && index <=9
 			@board.each do |place|
 				place.each do |key, value|
@@ -56,6 +59,7 @@ class TicBoard
 						if !(@x_location.include?(index) || @o_location.include?(index))
 							@o_location << index
 							spaces += 1
+							visual.add(index, "O")
 						else 
 							puts "Invalid move!"
 						end
@@ -80,21 +84,23 @@ class TicBoard
 			elsif ((solution - @o_location) == [])
 				return "O Wins!"
 
-			elsif spaces == 9
-				return "Draw!"
+			
 				
 			end
+		end
+		if spaces == 9
+				return "Draw!"
 		end
 		return nil
 	end
 
-	def draw_board
-		visual = " "
-		puts "#{visual}|#{visual}|#{visual}"
+	def draw_board(visual)
+		
+		puts "#{visual.one}|#{visual.two}|#{visual.three}"
 		puts "-+-+-"
-		puts "#{visual}|#{visual}|#{visual}"
+		puts "#{visual.four}|#{visual.five}|#{visual.six}"
 		puts "-+-+-"
-		puts "#{visual}|#{visual}|#{visual}"
+		puts "#{visual.seven}|#{visual.eight}|#{visual.nine}"
 	#def draw_board
 		#@board.each do |place|
 			#place.each do |key, value|

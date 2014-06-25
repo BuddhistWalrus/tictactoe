@@ -32,28 +32,23 @@ class TicVisual
 	def three
 		@three
 	end
-	def one
-		@one
+	def four
+		@four
 	end
-	def one
-		@one
+	def five
+		@five
 	end
-	def one
-		@one
+	def six
+		@six
 	end
-	def one
-		@one
+	def seven
+		@seven
 	end
-	def one
-		@one
+	def eight
+		@eight
 	end
-	def one
-		@one
+	def nine
+		@nine
 	end
 end
 
-foo = TicVisual.new
-foo.add(1, "X")
-foo.add(2, "O")
-puts "#{foo.symbol(1)}"
-puts "#{foo.symbol(2)}"
