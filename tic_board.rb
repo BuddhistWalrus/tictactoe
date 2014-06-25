@@ -88,6 +88,13 @@ class TicBoard
 		return nil
 	end
 
+	def draw_board
+		visual = " "
+		puts "#{visual}|#{visual}|#{visual}"
+		puts "-+-+-"
+		puts "#{visual}|#{visual}|#{visual}"
+		puts "-+-+-"
+		puts "#{visual}|#{visual}|#{visual}"
 	#def draw_board
 		#@board.each do |place|
 			#place.each do |key, value|
@@ -96,5 +103,6 @@ class TicBoard
 			#end
 		#end
 	#end
+	end
 
 end
