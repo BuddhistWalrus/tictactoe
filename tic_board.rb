@@ -87,4 +87,14 @@ class TicBoard
 		end
 		return nil
 	end
+
+	#def draw_board
+		#@board.each do |place|
+			#place.each do |key, value|
+
+				#puts "#{value}|#{value}|#{value}\n\n"
+			#end
+		#end
+	#end
+
 end
